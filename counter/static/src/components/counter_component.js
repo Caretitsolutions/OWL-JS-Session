@@ -1,17 +1,14 @@
 /** @odoo-module */
 
 class CounterComponent extends Component {
-  static template = xml`
-    <button t-on-click="increment">
-        Click Me! [<t t-esc="state.value"/>]
-    </button>`;
+      static template = xml`
+        <button t-on-click="increment">
+            Click Me! [<t t-esc="state.value"/>]
+        </button>`;
 
-      state = {
-        value: 0
-      };
+      state = useState({ value: 0 });
 
       increment() {
-        this.state.value++;  // Manually update state
-        this.render();  // Manually trigger a re-render of the component
+        this.state.value++; 
       }
 }
