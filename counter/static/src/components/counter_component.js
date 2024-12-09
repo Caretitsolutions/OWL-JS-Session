@@ -12,7 +12,6 @@ class CounterComponent extends Component {
 
       increment() {
         this.state.value++;  // Manually update state
-        console.log(" this.state=========", this.state)
         this.render();  // Manually trigger a re-render of the component
       }
 }

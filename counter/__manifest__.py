@@ -11,8 +11,8 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'custom_js/static/src/**/*',
-            'custom_js/static/src/main.js',
+            'counter/static/src/**/*',
+            'counter/static/src/main.js',
         ],
     },
     'installable': True,
