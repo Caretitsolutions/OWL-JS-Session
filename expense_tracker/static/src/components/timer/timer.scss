@@ -1,0 +1,17 @@
+.time-part {
+    padding: 0 5px;
+    font-size: 1.2em;
+}
+
+.highlight-animation {
+    animation: highlight 0.5s ease-out;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: yellow;
+    }
+    100% {
+        background-color: transparent;
+    }
+}

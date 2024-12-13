@@ -37,3 +37,4 @@ class CounterComponent extends Component {
         console.log("Updated state value:", this.state.value);
       }
 }
+export default CounterComponent;

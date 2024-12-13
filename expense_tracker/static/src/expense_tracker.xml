@@ -3,10 +3,16 @@
 
     <t t-name="expense_tracker.root">
         <div class="d-flex expense_tracker_app">
-                        <h1>Hello World!</h1>
-
-            <!--            <Header/>-->
-            <!--            <Container/>-->
+            <!-- Including the Header Component -->
+            <Header>
+                <!-- Defining the Slot Content -->
+                <t t-set-slot="additionalContent">
+                    <div class="custom-content text-center">
+                        <h3>Welcome to Expense Tracker!</h3>
+                        <p>This is some additional content rendered via a slot.</p>
+                    </div>
+                </t>
+            </Header>
         </div>
     </t>
 

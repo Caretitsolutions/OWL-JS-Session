@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="expense_tracker.timer">
+        <div class="timer">
+            <div id="timer-display">
+                <span id="days" class="time-part">
+                    <t t-esc="state.time.days"/> Days
+                </span>
+                <span id="hours" class="time-part">
+                    <t t-esc="state.time.hours"/> Hours
+                </span>
+                <span id="minutes" class="time-part">
+                    <t t-esc="state.time.minutes"/> Minutes
+                </span>
+                <span id="seconds" class="time-part">
+                    <t t-esc="state.time.seconds"/> Seconds
+                </span>
+            </div>
+        </div>
+    </t>
+</templates>
+
