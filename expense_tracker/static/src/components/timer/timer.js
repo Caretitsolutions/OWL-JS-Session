@@ -41,23 +41,15 @@ export class Timer extends Component {
         // Example of `onRendered`: Called every time the component is rendered or re-rendered
         onRendered(() => {
             console.log("Timer is rendering/re-rendering.");
-             const secondsElement = document.getElementById('seconds');
-            if (secondsElement) {
-                // Apply a simple animation effect to attract attention
-                secondsElement.classList.add('highlight-animation');
-                setTimeout(() => {
-                    secondsElement.classList.remove('highlight-animation');
-                }, 500); // Highlight for 500ms
-            }
         });
-//
-//        // Example of `onWillDestroy`: Clean up additional resources when the component is destroyed
+
+        // Example of `onWillDestroy`: Clean up additional resources when the component is destroyed
         onWillDestroy(() => {
             console.log("Timer is destroyed, cleaning up resources.");
             this.state = null; // Clearing the state when the component is destroyed
         });
 
-//        // Example of `onError`: Handle any errors that occur during the lifecycle of the component
+        // Example of `onError`: Handle any errors that occur during the lifecycle of the component
         onError((error) => {
             console.error("An error occurred in Timer component:", error);
             alert(`Error: ${error.message}`); // Show an alert to the user
@@ -66,9 +58,16 @@ export class Timer extends Component {
         // Example of `onWillPatch`: Called just before the state is patched
         onWillPatch(() => {
             console.log("Timer state will be patched:", this.state.time);
-
             // Example of attracting user attention: animate or highlight a part of the component
             // (For example, let's assume you want to highlight the 'seconds' part when it's updated)
+            const secondsElement = document.getElementById('seconds');
+            if (secondsElement) {
+                // Apply a simple animation effect to attract attention
+                secondsElement.classList.add('highlight-animation');
+                setTimeout(() => {
+                    secondsElement.classList.remove('highlight-animation');
+                }, 500); // Highlight for 500ms
+            }
 
         });
     }
