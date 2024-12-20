@@ -11,7 +11,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'counter/static/src/main.js',
+            'gaurav/static/src/main.js',
         ],
     },
     'installable': True,
