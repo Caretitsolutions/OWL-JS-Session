@@ -15,9 +15,23 @@ class UserInputComponent extends Component {
             t-on-keypress="addItem"
         />
     </div>
-    <ul>
-        <t t-foreach="state.items" t-as="item" t-key="item.text">
-            <li><span t-esc="item.text" t-attf-style="color: {{item.color}}" /></li>
+    <ul style="list-style-type:none">
+        <t t-foreach="state.items" t-as="item" t-key="item.id">
+            <li>
+              <input
+                    type="checkbox"
+                    t-model="item.checked"
+                    style="height:auto;width:20px"
+                />
+              <span t-esc="item.text" t-attf-style="color: {{item.color}}" t-att-class="{ 'text-decoration-line-through': item.checked }" />
+              <span
+                    class="ms-2 text-danger cursor-pointer"
+                    t-on-click="() => this.removeItem(item)"
+                    
+                >
+                    ❌
+                </span>
+            </li>
         </t>
     </ul>
 </div>`;
@@ -41,7 +55,7 @@ class UserInputComponent extends Component {
 
                 // Return a cleanup function to run when the component is unmounted or state.value changes again
                 return () => {
-                  console.log("Cleanup when component is unmounted or state.value is updated.", this.state.buttonColor);
+                  console.log("button color >>>>>>>>>>>>>>>.", this.state.buttonColor);
                 };
               }, ()=>[this.state.inputValue]); // Dependency array: effect runs when state.value changes
       }
@@ -49,6 +63,8 @@ class UserInputComponent extends Component {
       addItem(event) {
         if (event.key === "Enter" && this.state.inputValue.trim()) {
             this.state.items.push({'text':this.state.inputValue.trim(),
+              'checked': false,
+              'id':Date.now(),
               'color':this.state.buttonColor});
             console.log("this.state.items>>>>>>>>>>>>>>>>.",this.state)
             this.state.inputValue = ""; // Clear input field
@@ -56,9 +72,9 @@ class UserInputComponent extends Component {
         }
     }
 
-    deleteItem(event) {
-      console.log('event>>>>>>>>>>>>>>>>',event, this)
-      event.target.style = {'text-decoration': 'line-through'}
+    removeItem(item) {
+      console.log('event>>>>>>>>>>>>>>>>',item)
+      this.state.items = this.state.items.filter((i) => i.id !== item.id);
     }
 }
 export default UserInputComponent;

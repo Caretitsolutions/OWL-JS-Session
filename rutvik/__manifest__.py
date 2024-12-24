@@ -1,7 +1,7 @@
 {
     'name': 'OWL Exercise',
     'version': '1.0',
-    'summary': 'Exercise',
+    'summary': 'Developed by ...',
     'category': 'Tools',
     'author': 'RP',
     'depends': ['base', 'web'],

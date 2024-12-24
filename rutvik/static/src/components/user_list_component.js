@@ -20,21 +20,6 @@ class UserListComponent extends Component {
               value : 0
           });
 
-          // useEffect(() => {
-          //     // Code to run when the component mounts or state.value changes
-          //       console.log("Component mounted or state.value changed: ", this.state.value);
-
-          //       if (this.state.items && this.state.items.length % 2 === 0) {
-          //         this.state.buttonColor = "blue";
-          //       } else {
-          //         this.state.buttonColor = "green";
-          //       }
-
-          //       // Return a cleanup function to run when the component is unmounted or state.value changes again
-          //       return () => {
-          //         console.log("Cleanup when component is unmounted or state.value is updated.", this.state.buttonColor);
-          //       };
-          //     }, ()=>[this.state.inputValue]); // Dependency array: effect runs when state.value changes
       }
 
       addItemList(event) {
@@ -45,10 +30,6 @@ class UserListComponent extends Component {
         });
     }
 
-    deleteItem(event) {
-      console.log('event>>>>>>>>>>>>>>>>',event, this)
-      event.target.style = {'text-decoration': 'line-through'}
-    }
 }
 
 UserListComponent.components = { UserInputComponent };

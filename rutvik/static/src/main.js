@@ -13,7 +13,6 @@ whenReady(async() => {
     warnIfNoStaticProps : true,
     name: UserListComponent.constructor.name,
     });
-    console.log("are you calling ???")
     if (target) {
         const root = await app.mount(target);
         console.log("App mounted successfully:", root);
