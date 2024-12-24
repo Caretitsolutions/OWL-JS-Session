@@ -3,7 +3,7 @@
     'version': '1.0',
     'summary': 'Track personal expenses',
     'category': 'Tools',
-    'author': 'Mohammed Shekha',
+    'author': '',
     'depends': ['base', 'web'],
     'data': [
     ],
