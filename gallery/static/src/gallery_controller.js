@@ -19,17 +19,17 @@ export class GalleryController extends Component {
 
     static components = { Layout };
 
-//    setup() {
-//        this.orm = useService("orm");
-//        this.model = useState(
-//            new GalleryModel(
-//                this.orm,
-//                this.props.resModel,
-//                this.props.fields,
-//                this.props.archInfo,
-//            )
-//        );
-//        this.images = useState({ data: [] });
+    setup() {
+        this.orm = useService("orm");
+        this.model = useState(
+            new GalleryModel(
+                this.orm,
+                this.props.resModel,
+                this.props.fields,
+                this.props.archInfo,
+            )
+        );
+        this.images = useState({ data: [] });
 //         usePager(() => {
 //            return {
 //                offset: this.model.pager.offset,
@@ -42,20 +42,20 @@ export class GalleryController extends Component {
 //                },
 //            };
 //         });
-//        onWillStart(async () => {
-////            const { records } = await this.loadImages(this.props.domain);
-////            this.images.data = records;
+        onWillStart(async () => {
+            const { records } = await this.loadImages(this.props.domain);
+            this.images.data = records;
 //                        await this.model.load(this.props.domain);
-//
-//        });
-//        onWillUpdateProps(async (nextProps) => {
-//            if (JSON.stringify(nextProps.domain) !== JSON.stringify(this.props.domain)) {
-////                const { records } = await this.loadImages(nextProps.domain);
-////                this.images.data = records;
+
+        });
+        onWillUpdateProps(async (nextProps) => {
+            if (JSON.stringify(nextProps.domain) !== JSON.stringify(this.props.domain)) {
+                const { records } = await this.loadImages(nextProps.domain);
+                this.images.data = records;
 //                                await this.model.load(nextProps.domain);
-//            }
-//        });
-//    }
+            }
+        });
+    }
 
 
 }
