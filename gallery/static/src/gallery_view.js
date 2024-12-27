@@ -10,7 +10,7 @@ export const galleryView = {
     icon: "fa fa-picture-o",
     multiRecord: true,
     Controller: GalleryController,
-//    ArchParser: GalleryArchParser,
+    ArchParser: GalleryArchParser,
     props(genericProps, view) {
         const { ArchParser } = view;
         const { arch } = genericProps;

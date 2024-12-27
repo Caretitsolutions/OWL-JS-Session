@@ -18,7 +18,7 @@
             # 'gallery/static/src/gallery_image.xml',
             'gallery/static/src/gallery_controller.js',
             # 'gallery/static/src/gallery_image.js',
-            # 'gallery/static/src/gallery_arch_parser.js',
+            'gallery/static/src/gallery_arch_parser.js',
             # 'gallery/static/src/gallery_renderer.js',
             # 'gallery/static/src/gallery_model.js',
             'gallery/static/src/gallery_view.js',

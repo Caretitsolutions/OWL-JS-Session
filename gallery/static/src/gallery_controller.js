@@ -12,7 +12,7 @@ export class GalleryController extends Component {
     static template = "gallery.GalleryController";
     static props = {
         ...standardViewProps,
-//                archInfo: Object,
+                archInfo: Object,
 
     };
 
