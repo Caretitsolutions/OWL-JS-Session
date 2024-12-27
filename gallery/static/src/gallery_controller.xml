@@ -2,7 +2,8 @@
 
 <templates xml:space="preserve">
     <t t-name="gallery.GalleryController">
-        <div> Hello world </div>
+                <Layout display="props.display"/>
+
 <!--        <Layout display="props.display" className="'h-100 overflow-auto'">-->
 <!--            <t t-foreach="images.data" t-as="image" t-key="image.id">-->
             <!--                <p>-->
