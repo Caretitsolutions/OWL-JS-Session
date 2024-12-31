@@ -1,6 +1,6 @@
 /** @odoo-module */
 
-const { Component, useState, xml, useEffect } = owl;
+const { Component, useState, xml, useEffect, useSubEnv } = owl;
 
 class UserInputComponent extends Component {
       static template = xml`
@@ -43,6 +43,8 @@ class UserInputComponent extends Component {
               items: [],
           });
 
+          // this.parentState = useSubEnv("parentState");
+
           useEffect(() => {
               // Code to run when the component mounts or state.value changes
                 console.log("Component mounted or state.value changed: ", this.state.value);
@@ -69,12 +71,14 @@ class UserInputComponent extends Component {
             console.log("this.state.items>>>>>>>>>>>>>>>>.",this.state)
             this.state.inputValue = ""; // Clear input field
             this.state.buttonColor = ""; // Clear input field
+            this.props.parentState.totalItems += 1;
         }
     }
 
     removeItem(item) {
       console.log('event>>>>>>>>>>>>>>>>',item)
       this.state.items = this.state.items.filter((i) => i.id !== item.id);
+      this.props.parentState.totalItems -= 1;
     }
 }
 export default UserInputComponent;
