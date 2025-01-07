@@ -9,54 +9,43 @@ const { Component, onWillStart, useRef, onMounted, useState } = owl
 import { getColor } from "@web/views/calendar/colors";
 import { browser } from "@web/core/browser/browser"
 import { routeToUrl } from "@web/core/browser/router_service"
+const { DateTime } = luxon;
 
 export class OwlSalesDashboard extends Component {
     setup() {
-        this.chartRef = useRef("chart");
+         this.state = useState({
+            quotations: {
+                value:10,
+                percentage:6,
+            },
+            period:90,
+        })
+        this.actionService = useService("action")
+        this.orm = useService("orm")
 
-        // Load the Chart.js library
-        onWillStart(async () => {
-            await loadJS("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js");
+        onWillStart(async ()=>{
+            await this.getDates()
+            await this.getQuotations()
         });
+    }
 
-        // Initialize the chart after the component is mounted
-        onMounted(() => {
-            const data = [
-                { year: 2010, count: 10 },
-                { year: 2011, count: 20 },
-                { year: 2012, count: 15 },
-                { year: 2013, count: 25 },
-                { year: 2014, count: 22 },
-                { year: 2015, count: 30 },
-                { year: 2016, count: 28 },
-            ];
+    async onChangePeriod(){
+         await this.getDates()
+         await this.getQuotations()
+    }
 
-            new Chart(this.chartRef.el, {
-                type: 'line',
-                data: {
-                    labels: data.map((row) => row.year),
-                    datasets: [
-                        {
-                            label: 'Acquisitions by year',
-                            data: data.map((row) => row.count),
-                        },
-                    ],
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                      legend: {
-                        position: 'bottom',
-                      },
-                      title: {
-                        display: true,
-                        text: this.props.title,
-                        position: 'bottom',
-                      }
-                    },
-                },
-            });
-        }); // <-- Corrected: Closing parenthesis added here
+    getDates(){
+        const calculatedDate = DateTime.now().minus({ days: this.state.period });
+        this.state.date = calculatedDate.toFormat("yyyy-MM-dd'T'HH:mm:ssZZ");
+    }
+
+    async getQuotations(){
+        const data = await this.orm.searchCount("sale.order", [['state', 'in', ['sent', 'draft']],['date_order','>',this.state.date]])
+        this.state.quotations.value = data
+    }
+
+    async viewQuotations(){
+        this.actionService.doAction('sale.action_quotations_with_onboarding')
     }
 }
 

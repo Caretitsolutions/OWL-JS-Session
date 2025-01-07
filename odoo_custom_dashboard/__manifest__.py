@@ -19,6 +19,7 @@
             'odoo_custom_dashboard/static/src/components/**/*.js',
             'odoo_custom_dashboard/static/src/components/**/*.xml',
             'odoo_custom_dashboard/static/src/components/**/*.scss',
+
         ],
     },
 }
