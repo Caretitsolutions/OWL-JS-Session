@@ -22,7 +22,7 @@ export class ChartRenderer extends Component {
 
     renderChart(){
         new Chart(this.chartRef.el, {
-              type: 'doughnut',
+              type: this.props.type,
               data:{
                 labels: [
                     'Red',

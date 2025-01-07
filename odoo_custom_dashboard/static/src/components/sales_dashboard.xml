@@ -5,6 +5,12 @@
             <div class="row m-3">
                 <div class="col-lg-7">
                     <div class="row">
+                    <KpiCard name="'Quotations'" value="10" percentage="6"/>
+                        <KpiCard name="'Orders'" value="20" percentage="20"/>
+                        <KpiCard name="'Revenues'" value="'30.50K'" percentage="-3"/>
+                        <KpiCard name="'Average Order'" value="'2.5K'" percentage="-10"/>
+                    </div>
+                    <div class="row">
                         <div class="col m-0 p-0">
                             <div class="shadow-sm border m-2 p-4 bg-white">
                                 <div class="d-flex align-items-center justify-content-between">
@@ -31,7 +37,7 @@
                                         <span class="fa fa-arrow-right text-white"/>
                                     </div>
                                 </div>
-                            <canvas t-ref="chart"/>
+                                <ChartRenderer type="'bar'"/>
                             </div>
                         </div>
                         <div class="col-lg-6 m-0 p-0">
@@ -42,20 +48,41 @@
                                         <span class="fa fa-arrow-right text-white"/>
                                     </div>
                                 </div>
-                                <ChartRenderer/>
-<!--                                <ChartRenderer type="'pie'" title="'Top Sales People Report'" config="state.topSalesPeople"/>-->
+                                <ChartRenderer type="'pie'"/>
+                                <!--                                <ChartRenderer type="'pie'" title="'Top Sales People Report'" config="state.topSalesPeople"/>-->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <KpiCard name="'Quotations'" value="10" percentage="6"/>
-                    <KpiCard name="'Orders'" value="20" percentage="20"/>
-                    <KpiCard name="'Revenues'" value="'30.50K'" percentage="-3"/>
-                    <KpiCard name="'Average Order'" value="'2.5K'" percentage="-10"/>
-                </div>
                 <div class="col-lg-5">
+                    <div class="row">
+                        <div class="col m-0 p-0">
+                            <div class="shadow-sm border m-2 p-4 bg-white">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h3 class="text-primary fw-bold">Monthly Sales</h3>
+                                    <div class="px-3 py-1 bg-primary cursor-pointer">
+                                        <span class="fa fa-arrow-right text-white"/>
+                                    </div>
+                                </div>
+                                <ChartRenderer type="'bar'" title="'Monthly Sales Report'" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m-0 p-0">
+                            <div class="shadow-sm border m-2 p-4 bg-white">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h3 class="text-primary fw-bold">Partner Orders</h3>
+                                    <div class="px-3 py-1 bg-primary cursor-pointer">
+                                        <span class="fa fa-arrow-right text-white"/>
+                                    </div>
+                                </div>
+                                <ChartRenderer type="'doughnut'" title="'Partner Orders Report'"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
       </div>
     </t>
